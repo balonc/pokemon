@@ -1,4 +1,4 @@
-typedef struct {
+typedef struct pokemon {
 	int id;
 	char nombre[10];
     int bps;
@@ -14,6 +14,8 @@ typedef struct {
     int pevelocidad;
     int peataqueesp;
     int pedefensaesp;
+    struct pokemon* izquierdo;
+    struct pokemon* derecho;
 } Pokemon;
 
 static Pokemon pokemons[150] = {
@@ -88,3 +90,77 @@ static Pokemon pokemons[150] = {
 // { 69,"Bellsprout",84,0,1,0,0,0,0 },
 // { 70,"Weepinbell",151,0,2,0,0,0,0  },
 };
+
+typedef Pokemon Arbol;
+
+// Nodo* CrearNodo(int id, char nombre[10], int bps, int) {
+//     Nodo* n = (Nodo *) malloc(sizeof(Nodo));
+//     n->valor = valor;
+//     n->derecho = n->izquierdo = NULL;
+//     return n;
+// }
+
+// void DestruirNodo(Nodo* n) {
+//     n->derecho = n->izquierdo = NULL; // Por si acaso
+//     free(n);
+// }
+
+// void Insertar(Nodo** arbol, int valor) {
+//     if (*arbol == NULL) {
+//         Nodo* n = CrearNodo(valor);
+//         *arbol = n;
+//     } else {
+//         // Los elementos menores a la izq, los elementos
+//         // mayores a la der.
+//         int valorRaiz = (*arbol)->valor;
+//         if (valor < valorRaiz) {
+//             Insertar(&(*arbol)->izquierdo, valor);
+//         } else {
+//             Insertar(&(*arbol)->derecho, valor);
+//         }
+//     }
+// }
+
+void PreOrder(Pokemon *arbol) {
+    if (arbol) {
+        printf("%d,", arbol->id);
+        PreOrder(arbol->izquierdo);
+        PreOrder(arbol->derecho);
+    }
+}
+
+void InOrder(Pokemon *arbol) {
+    if (arbol) {
+        InOrder(arbol->izquierdo);
+        printf("%d,", arbol->id);
+        InOrder(arbol->derecho);
+    }
+}
+
+void PosOrder(Pokemon *arbol) {
+    if (arbol) {
+        PosOrder(arbol->derecho);
+        PosOrder(arbol->izquierdo);
+        printf("%d,", arbol->id);
+    }
+}
+
+int Existe(Pokemon* arbol, int id) {
+    if (!arbol) {
+        return 0;
+    } else if (arbol->id == id) {
+       return 1;
+    } else if (id < arbol->id) {
+        return Existe(arbol->izquierdo, id);
+    } else {
+        return Existe(arbol->derecho, id);
+    }
+}
+
+void DeterminarExistencia(Pokemon* arbol, int id) {
+    if (Existe(arbol, id)) {
+        printf("El pokemon %d existe. \n", id);
+    } else {
+        printf("El pokemon %d no existe. \n", id);
+    }
+}
