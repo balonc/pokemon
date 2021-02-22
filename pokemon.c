@@ -1,46 +1,30 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "pokemon.h"
+
+int calculaPS(int base, int iv, int ev, int nivel)
+{
+    int ps;
+
+    ps = (((2 * base) + iv + (ev / 4)) * nivel) / 100 + nivel + 10;
+
+    return ps;
+}
+
+int calculaStat(int base, int iv, int ev, int nivel, float nature)
+{
+    int stat;
+
+    stat = (((((2 * base) + iv + (ev / 4)) * nivel) / 100) + 5) * nature;
+
+    return stat;
+}
 
 int main(int argc, char **argv)
 {
-    printf("Hola mundo pokemon\n");
+    int ps = calculaPS(25,20,0,50);
+    int ata = calculaStat(20,0,0,50,1.1);
 
-    for (int i = 0; i < 150; i++)
-    {
-        printf("%s\n", pokemons[i].nombre);
-    }
-
-    PosOrder(arbol);
+    printf("%d,%d",ps,ata);
 
     return 0;
 }
-
-// Árbol binario de búsqueda
-// int main()
-// {
-//     Arbol *arbol = CrearNodo(10);
-//     Insertar(&arbol, 5);
-//     Insertar(&arbol, 11);
-//     Insertar(&arbol, 50);
-//     Insertar(&arbol, 3);
-//     Insertar(&arbol, 1);
-//     Insertar(&arbol, 17);
-//     Insertar(&arbol, 85);
-//     Insertar(&arbol, 12);
-//     Insertar(&arbol, 4);
-//     Insertar(&arbol, 8);
-
-//     DeterminarExistencia(arbol, 3);
-//     DeterminarExistencia(arbol, 14);
-//     DeterminarExistencia(arbol, 50);
-
-//     PreOrder(arbol);
-//     printf("\n");
-//     InOrder(arbol);
-//     printf("\n");
-//     PosOrder(arbol);
-//     printf("\n");
-
-//     return 0;
-// }
