@@ -3,20 +3,12 @@
 
 int calculaPS(int base, int iv, int ev, int nivel)
 {
-    int ps;
-
-    ps = (((2 * base) + iv + (ev / 4)) * nivel) / 100 + nivel + 10;
-
-    return ps;
+    return (((2 * base) + iv + (ev / 4)) * nivel) / 100 + nivel + 10;
 }
 
 int calculaStat(int base, int iv, int ev, int nivel, float nature)
 {
-    int stat;
-
-    stat = (((((2 * base) + iv + (ev / 4)) * nivel) / 100) + 5) * nature;
-
-    return stat;
+    return (((((2 * base) + iv + (ev / 4)) * nivel) / 100) + 5) * nature;
 }
 
 int main(int argc, char **argv)
