@@ -54,6 +54,19 @@ int calculaDamage(int n, int a, int p, int d, float b, float e)
     return 0.01 * b * e * v * ((((0.2 * n + 1) * a * p) / (25 * d)) + 2);
 }
 
+// TODO
+int calculaPrecision(float pbase, float precision, float evasion)
+{
+    /*
+        pbase es la precisión base del movimiento utilizado
+        precision es la precisión del pokemon al utilizar el movimiento, parte de 0
+        evasion es la evasión del rival al utilizar el movimiento, parte de 0
+    */
+    int a = (pbase / 100) * (precision / evasion);
+    //int a = (precision / evasion);
+    return a;
+}
+
 int main(int argc, char **argv)
 {
     int ps = calculaPS(25,20,0,50);
