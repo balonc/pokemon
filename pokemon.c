@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include "pokedex.h"
 
 int calculaPS(int base, int iv, int ev, int nivel)
 {
@@ -94,20 +95,14 @@ int calculaPrecision(float pbase, float precision, float evasion)
 
 int main(int argc, char **argv)
 {
-    int ps = calculaPS(25,20,0,50);
-    int ata = calculaStat(105,5,252,100,0.9);
-
-    printf("%d,%d\n",ps,ata);
-
-    if (calculaHuida(10, 100, 1)) printf("Huye\n"); else printf("No huye\n");
-
-    int dano = calculaDamage(100,410,150,450,1.5,0.5);
-    printf("%d\n", dano);
-
-    int tpo = calculaTipoPoderOculto(30,30,30,31,31,27);
-    int ppo = calculaPotenciaPoderOculto(30,30,30,31,31,27);
-    printf("%d,%d\n", tpo, ppo);
-    
+    for (int i = 0; i < 9; i++)
+    {
+        if (pokemons[i].id)
+        printf("%d - %s - %d %d\n", 
+            pokemons[i].id, pokemons[i].nombre, 
+            calculaPS(pokemons[i].baseps,0,0,100), 
+            calculaStat(pokemons[i].baseataque,0,0,100,1.1));
+    }
 
     return 0;
 }
