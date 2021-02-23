@@ -12,6 +12,38 @@ int calculaStat(int base, int iv, int ev, int nivel, float nature)
     return (((((2 * base) + iv + (ev / 4)) * nivel) / 100) + 5) * nature;
 }
 
+int calculaTipoPoderOculto(int ivps, int ivata, int ivdef, int ivvel, int ivataesp, int ivdefesp)
+{
+    int tpo, t;
+
+    if (ivps % 2 != 0) t++;
+    if (ivata % 2 != 0) t+=2;
+    if (ivdef % 2 != 0) t+=4;
+    if (ivvel % 2 != 0) t+=8;
+    if (ivataesp % 2 != 0) t+=16;
+    if (ivdefesp % 2 != 0) t+=32;
+
+    tpo = (t * 15) / 63;
+
+    return tpo;
+}
+
+int calculaPotenciaPoderOculto(int ivps, int ivata, int ivdef, int ivvel, int ivataesp, int ivdefesp)
+{
+    int ppo, p;
+
+    if (ivps % 4 == 2 || ivps % 4 == 3) p++;
+    if (ivata % 4 == 2 || ivps % 4 == 3) p+=2;
+    if (ivdef % 4 == 2 || ivps % 4 == 3) p+=4;
+    if (ivvel % 4 == 2 || ivps % 4 == 3) p+=8;
+    if (ivataesp % 4 == 2 || ivps % 4 == 3) p+=16;
+    if (ivdefesp % 4 == 2 || ivps % 4 == 3) p+=32;
+
+    ppo = ((p * 40) / 63) + 30;
+
+    return ppo;
+}
+
 int calculaHuida(int a, int b, int c)
 {
     /*
@@ -25,14 +57,7 @@ int calculaHuida(int a, int b, int c)
     int f = ((a * 128) / b + 30 * c);
 
     /* 1 escapa, 0 no escapa */
-    if (mod < f) 
-    {
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
+    if (mod < f) return 1; else return 0;
 }
 
 int calculaDamage(int n, int a, int p, int d, float b, float e)
@@ -74,17 +99,15 @@ int main(int argc, char **argv)
 
     printf("%d,%d\n",ps,ata);
 
-    if (calculaHuida(10, 100, 1))
-    {
-        printf("Huye\n");
-    }
-    else 
-    {
-        printf("No huye\n");
-    }
+    if (calculaHuida(10, 100, 1)) printf("Huye\n"); else printf("No huye\n");
 
     int dano = calculaDamage(100,410,150,450,1.5,0.5);
     printf("%d\n", dano);
+
+    int tpo = calculaTipoPoderOculto(30,30,30,31,31,27);
+    int ppo = calculaPotenciaPoderOculto(30,30,30,31,31,27);
+    printf("%d,%d\n", tpo, ppo);
+    
 
     return 0;
 }
