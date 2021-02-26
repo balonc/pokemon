@@ -80,17 +80,52 @@ int calculaDamage(int n, int a, int p, int d, float b, float e)
     return 0.01 * b * e * v * ((((0.2 * n + 1) * a * p) / (25 * d)) + 2);
 }
 
-// TODO
-int calculaPrecision(float pbase, float precision, float evasion)
+int calculaPrecision(float pb, int p, int e)
 {
     /*
-        pbase es la precisión base del movimiento utilizado
-        precision es la precisión del pokemon al utilizar el movimiento, parte de 0
-        evasion es la evasión del rival al utilizar el movimiento, parte de 0
+        pb es la precisión base del movimiento utilizado
+        p es la precisión del pokemon al utilizar el movimiento, parte de 0 y se encuentra en el rango [6,-6]
+        e es la evasión del rival al utilizar el movimiento, parte de 0 y se encuentra en el rango [6,-6]
     */
-    int a = (pbase / 100) * (precision / evasion);
-    //int a = (precision / evasion);
-    return a;
+	float a, cp, ce;
+	pb = pb / 100;
+
+	switch(p) {
+		case 6: cp = pb * 3; break;
+		case 5: cp = pb * 2.6; break;
+		case 4: cp = pb * 2.3; break;
+		case 3: cp = pb * 2; break;
+		case 2: cp = pb * 1.6; break;
+		case 1: cp = pb * 1.3; break;
+		case 0: cp = pb * 1; break;
+		case -1: cp = pb * 0.75; break;
+		case -2: cp = pb * 0.6; break;
+		case -3: cp = pb * 0.5; break;
+		case -4: cp = pb * 0.4285; break;
+		case -5: cp = pb * 0.375; break;
+		case -6: cp = pb * 0.3; break;
+    }
+
+	switch(e) {
+		case 6: ce = pb * 0.3; break;
+		case 5: ce = pb * 0.375; break;
+		case 4: ce = pb * 0.4285; break;
+		case 3: ce = pb * 0.5; break;
+		case 2: ce = pb * 0.6; break;
+		case 1: ce = pb * 0.75; break;
+		case 0: ce = pb * 1; break;
+		case -1: ce = pb * 1.3; break;
+		case -2: ce = pb * 1.6; break;
+		case -3: ce = pb * 2; break;
+		case -4: ce = pb * 2.3; break;
+		case -5: ce = pb * 2.6; break;
+		case -6: ce = pb * 3; break;
+    }
+
+    a = pb * (cp / ce);
+   
+    if (a >= 1) return 1;
+    else return 0;
 }
 
 int main(int argc, char **argv)
@@ -103,6 +138,9 @@ int main(int argc, char **argv)
             calculaPS(pokemons[i].baseps,0,0,100), 
             calculaStat(pokemons[i].baseataque,0,0,100,1.1));
     }
+
+	int b = calculaPrecision(100.0,0,0);
+	printf("%d", b);
 
     return 0;
 }
