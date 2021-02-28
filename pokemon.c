@@ -90,7 +90,8 @@ int calculaPrecision(float pb, int p, int e)
 	float a, cp, ce;
 	pb = pb / 100;
 
-	switch(p) {
+	switch(p) 
+    {
 		case 6: cp = pb * 3; break;
 		case 5: cp = pb * 2.6; break;
 		case 4: cp = pb * 2.3; break;
@@ -106,7 +107,8 @@ int calculaPrecision(float pb, int p, int e)
 		case -6: cp = pb * 0.3; break;
     }
 
-	switch(e) {
+	switch(e) 
+    {
 		case 6: ce = pb * 0.3; break;
 		case 5: ce = pb * 0.375; break;
 		case 4: ce = pb * 0.4285; break;
@@ -136,7 +138,8 @@ int main(int argc, char **argv)
         printf("%d - %s - %d %d\n", 
             pokemons[i].id, pokemons[i].nombre, 
             calculaPS(pokemons[i].baseps,0,0,100), 
-            calculaStat(pokemons[i].baseataque,0,0,100,1.1));
+            calculaStat(pokemons[i].baseataque,0,0,100,1.1)
+        );
     }
 
 	int b = calculaPrecision(100.0,0,0);
