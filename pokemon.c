@@ -11,6 +11,7 @@ int main(int argc, char **argv)
 	int c;
 	char *options = "-ab:c:d::";
 	
+	// optind, opterr, optopt, optopt, optarg
 	c = getopt(argc, argv, options);
 	
 	while(c != -1) 
@@ -30,7 +31,7 @@ int main(int argc, char **argv)
 		{
 			printf("UEEE\n");
 		}
-		
+
 		c = getopt(argc, argv, options);
 	}
 	
