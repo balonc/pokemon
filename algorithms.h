@@ -1,3 +1,6 @@
+#ifndef ALGORITHMS_H
+#define ALGORITHMS_H
+
 int calculaPS(int base, int iv, int ev, int nivel)
 {
     return (((2 * base) + iv + (ev / 4)) * nivel) / 100 + nivel + 10;
@@ -132,3 +135,5 @@ int calculaPotenciaPoderOculto(int ivps, int ivata, int ivdef, int ivvel, int iv
 int calculaHuida(int a, int b, int c);
 int calculaDamage(int n, int a, int p, int d, float b, float e);
 int calculaPrecision(float pb, int p, int e);
+
+#endif

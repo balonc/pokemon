@@ -1,3 +1,6 @@
+#ifndef POKEDEX_H
+#define POKEDEX_H
+
 typedef struct {
 	int id;
 	char nombre[10];
@@ -21,3 +24,5 @@ static Pokemon pokemons[] = {
 	{ 8,	"Wartortle",	59, 63, 80, 65, 80, 58 },
 	{ 9,	"Blastoise",	79, 83, 100,85, 105,78 },
 };
+
+#endif
