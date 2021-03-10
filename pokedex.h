@@ -16,11 +16,11 @@ typedef struct {
 	int id;
 	char esp[10];
 	char eng[10];
-	int ataque;
-	int defensa;
-	int aqueesp;
-	int defensaesp;
-	int velocidad;
+	double ataque;
+	double defensa;
+	double ataqueesp;
+	double defensaesp;
+	double velocidad;
 } Nature;
 
 
@@ -39,11 +39,11 @@ static Pokemon pokemons[] = {
 
 static Nature natures[] = {
 	/*id	esp			eng  		ata 	def 	asp 	dsp 	vel*/
-	{ 1,	"Fuerte",	"Hardy", 	1.0, 	1.0, 	1.0, 	1.0, 	1.0 },
-	{ 1,	"Osada",	"Bold", 	0.9, 	1.1, 	1.0, 	1.0, 	1.0 },
-	{ 1,	"Miedosa",	"Timid", 	0.9, 	1.0, 	1.1, 	1.0, 	1.0 },
-	{ 1,	"Modesta",	"Modest", 	0.9, 	1.0, 	1.0, 	1.1, 	1.0 },
-	{ 1,	"Serena",	"Calm", 	0.9, 	1.0, 	1.0, 	1.0, 	1.1 },
+	{ 1,	"fuerte",	"hardy", 	1.0, 	1.0, 	1.0, 	1.0, 	1.0 },
+	{ 2,	"osada",	"bold", 	0.9, 	1.1, 	1.0, 	1.0, 	1.0 },
+	{ 3,	"miedosa",	"timid", 	0.9, 	1.0, 	1.1, 	1.0, 	1.0 },
+	{ 4,	"modesta",	"modest", 	0.9, 	1.0, 	1.0, 	1.1, 	1.0 },
+	{ 5,	"serena",	"calm", 	0.9, 	1.0, 	1.0, 	1.0, 	1.1 },
 };
 
 

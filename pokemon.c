@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <time.h>
 #include <unistd.h>
 #include "pokedex.h"
@@ -7,7 +8,33 @@
 
 void nature(char *n, char *f, char *u)
 {
-	printf("%s,%s,%s\n",n,f,u);
+	if (n)
+	{
+		char *fav = 0;
+		char *unfav = 0;
+		for (int i = 0; i < 5; i++) 
+		{
+			if (strcmp(natures[i].esp,n) == 0)
+			{
+				if (natures[i].ataque == 1.1) fav = "ataque";
+				if (natures[i].defensa == 1.1) fav = "defensa";
+				if (natures[i].ataqueesp == 1.1) fav = "ataque especial";
+				if (natures[i].defensaesp == 1.1) fav = "defensa especial";
+				if (natures[i].velocidad == 1.1) fav = "velocidad";
+				if (natures[i].ataque == 0.9) unfav = "ataque";
+				if (natures[i].defensa == 0.9) unfav = "defensa";
+				if (natures[i].ataqueesp == 0.9) unfav = "ataque especial";
+				if (natures[i].defensaesp == 0.9) unfav = "defensa especial";
+				if (natures[i].velocidad == 0.9) unfav = "velocidad";
+			}
+		}
+		if (fav && unfav) printf("Sube %s y baja %s.\n",fav,unfav);
+		else printf("Naturaleza neutra.\n");
+	}
+	else if (f && u) printf("asdasd\n");	 
+	else if (f) printf("asdasd\n");	 
+	else if (u) printf("asdasd\n");	 
+	else printf("asdasd\n");
 }
 
 void pokedex(char *p, int id)
@@ -22,11 +49,11 @@ int main(int argc, char **argv)
 	char *options = "-an:f:u:p:";
 	
 	int mode = 0;
-	char *naturename;
-	char *statisticfavorable;
-	char *statisticunfavorable;
-	char *pokemonname;
-	int pokemonid;
+	char *naturename = 0;
+	char *statisticfavorable = 0;
+	char *statisticunfavorable = 0;
+	char *pokemonname = 0;
+	int pokemonid = 0;
 	
 	while ((c = getopt (argc, argv, options)) != -1)
 	{
