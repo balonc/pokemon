@@ -12,6 +12,18 @@ typedef struct {
 	int basevelocidad;
 } Pokemon;
 
+typedef struct {
+	int id;
+	char esp[10];
+	char eng[10];
+	int ataque;
+	int defensa;
+	int aqueesp;
+	int defensaesp;
+	int velocidad;
+} Nature;
+
+
 static Pokemon pokemons[] = {
 	/*id	nombre          ps  ata def asp dsp vel*/
 	{ 1,	"Bulbasaur",    45, 49, 49, 65, 65, 45 },
@@ -24,5 +36,15 @@ static Pokemon pokemons[] = {
 	{ 8,	"Wartortle",	59, 63, 80, 65, 80, 58 },
 	{ 9,	"Blastoise",	79, 83, 100,85, 105,78 },
 };
+
+static Nature natures[] = {
+	/*id	esp			eng  		ata 	def 	asp 	dsp 	vel*/
+	{ 1,	"Fuerte",	"Hardy", 	1.0, 	1.0, 	1.0, 	1.0, 	1.0 },
+	{ 1,	"Osada",	"Bold", 	0.9, 	1.1, 	1.0, 	1.0, 	1.0 },
+	{ 1,	"Miedosa",	"Timid", 	0.9, 	1.0, 	1.1, 	1.0, 	1.0 },
+	{ 1,	"Modesta",	"Modest", 	0.9, 	1.0, 	1.0, 	1.1, 	1.0 },
+	{ 1,	"Serena",	"Calm", 	0.9, 	1.0, 	1.0, 	1.0, 	1.1 },
+};
+
 
 #endif

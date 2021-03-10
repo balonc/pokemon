@@ -5,43 +5,54 @@
 #include "pokedex.h"
 #include "algorithms.h"
 
+void nature(char *n, char *f, char *u)
+{
+	printf("%s,%s,%s\n",n,f,u);
+}
+
+void pokedex(char *p, int id)
+{
+	printf("%s,%d\n",p,id);
+}
+
 int main(int argc, char **argv)
 {
 
 	int c;
-	char *options = "-avzb:";
+	char *options = "-an:f:u:p:";
 	
-	int selectedV = 0;
-	int selectedZ = 0;
-
-	// optind, opterr, optopt, optopt, optarg
-	//c = getopt(argc, argv, options);
+	int mode = 0;
+	char *naturename;
+	char *statisticfavorable;
+	char *statisticunfavorable;
+	char *pokemonname;
+	int pokemonid;
 	
 	while ((c = getopt (argc, argv, options)) != -1)
-	//while(c != -1) 
 	{
 		switch(c) 
 		{
-            case 'v':
-                selectedV = 1;
-                break;
-            case 'z':
-                selectedZ = 1;
-                break;
-            case 'b':
-                printf("selected b with %s\n", optarg);
-                break;
+			case 'n':
+				naturename = optarg;
+				break;
+			case 'f':
+				statisticfavorable = optarg;
+				break;
+			case 'u':
+				statisticunfavorable = optarg;
+				break;
+			case 'p':
+				if (isNumber(optarg)) pokemonid = atoi(optarg);
+				else pokemonname = optarg;
 		}
 
-		if (optarg && (strcmp(optarg,"abc") == 0))
-		{
-			printf("ok\n");
-		}
+		if (optarg && (strcmp(optarg,"naturaleza") == 0)) mode = 1;
+		else if (optarg && (strcmp(optarg,"pokedex") == 0)) mode = 2;
 
-		//c = getopt(argc, argv, options);
 	}
 
-	printf("%d - %d\n", selectedV, selectedZ);
+	if (mode == 1) nature(naturename, statisticfavorable, statisticunfavorable);
+	if (mode == 2) pokedex(pokemonname, pokemonid);
 	
     return 0;
 }
