@@ -12,9 +12,9 @@ void nature(char *n, char *f, char *u)
 	{
 		char *fav = 0;
 		char *unfav = 0;
-		for (int i = 0; i < 5; i++) 
+		for (int i = 0; i < 25; i++) 
 		{
-			if (strcmp(natures[i].esp,n) == 0)
+			if (strcmp(natures[i].name,n) == 0)
 			{
 				if (natures[i].ataque == 1.1) fav = "ataque";
 				if (natures[i].defensa == 1.1) fav = "defensa";
@@ -31,10 +31,67 @@ void nature(char *n, char *f, char *u)
 		if (fav && unfav) printf("Sube %s y baja %s.\n",fav,unfav);
 		else printf("Naturaleza neutra.\n");
 	}
-	else if (f && u) printf("asdasd\n");	 
-	else if (f) printf("asdasd\n");	 
-	else if (u) printf("asdasd\n");	 
-	else printf("asdasd\n");
+	else if (f && u)
+	{
+		printf("asdasd\n");
+	}	 
+	else if (f)
+	{
+		for (int i = 0; i < 25; i++) 
+		{
+			if (strcmp(f,"ataque") == 0) 
+			{
+				if (natures[i].ataque == 1.1) printf("%s\n",natures[i].name);
+			}
+			else if (strcmp(f,"ataqueesp") == 0) 
+			{
+				if (natures[i].ataqueesp == 1.1) printf("%s\n",natures[i].name);
+			}
+			else if (strcmp(f,"defensa") == 0) 
+			{
+				if (natures[i].defensa == 1.1) printf("%s\n",natures[i].name);
+			}
+			else if (strcmp(f,"defensaesp") == 0) 
+			{
+				if (natures[i].defensaesp == 1.1) printf("%s\n",natures[i].name);
+			}
+			else if (strcmp(f,"velocidad") == 0) 
+			{
+				if (natures[i].velocidad == 1.1) printf("%s\n",natures[i].name);
+			}
+		}
+	}
+	else if (u) 
+	{
+		for (int i = 0; i < 25; i++) 
+		{
+			if (strcmp(u,"ataque") == 0) 
+			{
+				if (natures[i].ataque == 0.9) printf("%s\n",natures[i].name);
+			}
+			else if (strcmp(u,"ataqueesp") == 0) 
+			{
+				if (natures[i].ataqueesp == 0.9) printf("%s\n",natures[i].name);
+			}
+			else if (strcmp(u,"defensa") == 0) 
+			{
+				if (natures[i].defensa == 0.9) printf("%s\n",natures[i].name);
+			}
+			else if (strcmp(u,"defensaesp") == 0) 
+			{
+				if (natures[i].defensaesp == 0.9) printf("%s\n",natures[i].name);
+			}
+			else if (strcmp(u,"velocidad") == 0) 
+			{
+				if (natures[i].velocidad == 0.9) printf("%s\n",natures[i].name);
+			}
+		}
+
+	}
+	else 
+	{
+		printf("Error.\n");
+	}
 }
 
 void pokedex(char *p, int id)
