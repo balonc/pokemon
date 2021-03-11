@@ -140,6 +140,12 @@ int isNumber(char *s)
     return 1;
 }
 
+char *lowerCase(char *s)
+{
+    for(int i = 0; s[i]; i++) s[i] = tolower(s[i]);
+    return s;
+}
+
 int calculaPS(int base, int iv, int ev, int nivel);
 int calculaStat(int base, int iv, int ev, int nivel, float nature);
 int calculaTipoPoderOculto(int ivps, int ivata, int ivdef, int ivvel, int ivataesp, int ivdefesp);
@@ -148,5 +154,6 @@ int calculaHuida(int a, int b, int c);
 int calculaDamage(int n, int a, int p, int d, float b, float e);
 int calculaPrecision(float pb, int p, int e);
 int isNumber(char *s);
+char *lowerCase(char *s);
 
 #endif

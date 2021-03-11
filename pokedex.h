@@ -3,7 +3,7 @@
 
 typedef struct {
 	int id;
-	char nombre[10];
+	char name[10];
 	int baseps;
 	int baseataque;
 	int basedefensa;

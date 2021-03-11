@@ -3,6 +3,8 @@
 #include <string.h>
 #include <time.h>
 #include <unistd.h>
+#include <ctype.h>
+
 #include "pokedex.h"
 #include "algorithms.h"
 
@@ -96,7 +98,44 @@ void nature(char *n, char *f, char *u)
 
 void pokedex(char *p, int id)
 {
-	printf("%s,%d\n",p,id);
+	if (p)
+	{
+		for (int i = 0; i < 10; i++)
+			if (strcmp(lowerCase(pokemons[i].name),lowerCase(p)) == 0) 
+				printf("Nº:%d"
+				"\nNombre:%s"
+				"\nCaracterísticas base:"
+				"\nPS:%d\tAtaque:%d\tDefensa:%d\tAtaqueEsp:%d\tDefensaEsp:%d\tVelocidad:%d"
+				"\n"
+				,pokemons[i].id,
+				pokemons[i].name,
+				pokemons[i].baseps,	
+				pokemons[i].baseataque,	
+				pokemons[i].basedefensa,	
+				pokemons[i].baseataqueesp,	
+				pokemons[i].basedefensaesp,	
+				pokemons[i].basevelocidad
+				);
+	}
+	else if (id)
+	{
+		for (int i = 0; i < 10; i++)
+			if (pokemons[i].id == id) 
+				printf("Nº:%d"
+				"\nNombre:%s"
+				"\nCaracterísticas base:"
+				"\nPS:%d\tAtaque:%d\tDefensa:%d\tAtaqueEsp:%d\tDefensaEsp:%d\tVelocidad:%d"
+				"\n"
+				,pokemons[i].id,
+				pokemons[i].name,
+				pokemons[i].baseps,	
+				pokemons[i].baseataque,	
+				pokemons[i].basedefensa,	
+				pokemons[i].baseataqueesp,	
+				pokemons[i].basedefensaesp,	
+				pokemons[i].basevelocidad
+				);
+	}
 }
 
 int main(int argc, char **argv)
