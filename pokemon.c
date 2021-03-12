@@ -8,7 +8,7 @@
 #include "pokedex.h"
 #include "algorithms.h"
 
-void nature(char *n, char *f, char *u)
+void nature(char *n, char *f, char *u, char **argv)
 {
 	if (n)
 	{
@@ -92,7 +92,30 @@ void nature(char *n, char *f, char *u)
 	}
 	else 
 	{
-		printf("Error.\n");
+		if (argv[2]) 
+		{
+			char *fav = 0;
+			char *unfav = 0;
+			for (int i = 0; i < 25; i++) 
+			{
+				if (strcmp(natures[i].name,argv[2]) == 0)
+				{
+					if (natures[i].ataque == 1.1) fav = "ataque";
+					if (natures[i].defensa == 1.1) fav = "defensa";
+					if (natures[i].ataqueesp == 1.1) fav = "ataque especial";
+					if (natures[i].defensaesp == 1.1) fav = "defensa especial";
+					if (natures[i].velocidad == 1.1) fav = "velocidad";
+					if (natures[i].ataque == 0.9) unfav = "ataque";
+					if (natures[i].defensa == 0.9) unfav = "defensa";
+					if (natures[i].ataqueesp == 0.9) unfav = "ataque especial";
+					if (natures[i].defensaesp == 0.9) unfav = "defensa especial";
+					if (natures[i].velocidad == 0.9) unfav = "velocidad";
+				}
+			}
+			if (fav && unfav) printf("Sube %s y baja %s.\n",fav,unfav);
+			else printf("Naturaleza neutra.\n");
+		}
+		else printf("Error.\n");
 	}
 }
 
@@ -142,7 +165,7 @@ int main(int argc, char **argv)
 
 	}
 
-	if (mode == 1) nature(naturename, statisticfavorable, statisticunfavorable);
+	if (mode == 1) nature(naturename, statisticfavorable, statisticunfavorable, argv);
 	if (mode == 2) pokedex(pokemonname, pokemonid);
 	
     return 0;
