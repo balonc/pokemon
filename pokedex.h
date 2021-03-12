@@ -4,12 +4,12 @@
 typedef struct {
 	int id;
 	char name[10];
-	int baseps;
-	int baseataque;
-	int basedefensa;
-	int baseataqueesp;
-	int basedefensaesp;
-	int basevelocidad;
+	int bps;
+	int bata;
+	int bdef;
+	int bataesp;
+	int bdefesp;
+	int bvel;
 } Pokemon;
 
 typedef struct {

@@ -146,6 +146,24 @@ char *lowerCase(char *s)
     return s;
 }
 
+void printPokemon(Pokemon p) 
+{
+    printf("(%d) Nombre:%s"
+        "\nCaracterísticas base:"
+        "\nPS (%d) Ata (%d) Def (%d) AtaEsp (%d) DefEsp (%d) Vel (%d)"
+        "\n",
+        p.id,
+        p.name,
+        p.bps,	
+        p.bata,	
+        p.bdef,	
+        p.bataesp,	
+        p.bdefesp,	
+        p.bvel
+        );
+
+}
+
 int calculaPS(int base, int iv, int ev, int nivel);
 int calculaStat(int base, int iv, int ev, int nivel, float nature);
 int calculaTipoPoderOculto(int ivps, int ivata, int ivdef, int ivvel, int ivataesp, int ivdefesp);
@@ -155,5 +173,6 @@ int calculaDamage(int n, int a, int p, int d, float b, float e);
 int calculaPrecision(float pb, int p, int e);
 int isNumber(char *s);
 char *lowerCase(char *s);
+void printPokemon(Pokemon p);
 
 #endif
