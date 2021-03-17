@@ -4,6 +4,8 @@
 typedef struct {
 	int id;
 	char name[10];
+	int type0;
+	int type1;
 	int bps;
 	int bata;
 	int bdef;
@@ -22,18 +24,22 @@ typedef struct {
 	double velocidad;
 } Nature;
 
+typedef struct {
+	int id;
+	char name[8];
+} Type;
 
 static Pokemon pokemons[] = {
-	/*id	nombre          ps  ata def asp dsp vel*/
-	{ 1,	"Bulbasaur",	45,	49,	49, 65, 65, 45 },
-	{ 2,	"Ivysaur",		60,	62,	63, 80, 80, 60 },
-	{ 3,	"Venusaur",		80,	82,	83, 100,100,80 },
-	{ 4,	"Charmander",	39,	52,	43, 60, 50, 65 },
-	{ 5,	"Charmeleon",	58,	64,	58, 80, 65, 80 },
-	{ 6,	"Charizard",	78,	84,	78, 109,85, 100 },
-	{ 7,	"Squirtle",		44,	48,	65, 50, 64, 43 },
-	{ 8,	"Wartortle",	59,	63,	80,	65, 80, 58 },
-	{ 9,	"Blastoise",	79,	83,	100,85,	105,78 },
+	/*id	nombre          t0 	t1 	ps  ata def asp dsp vel*/
+	{ 1,	"Bulbasaur",	11,	16,	45,	49,	49, 65, 65, 45 },
+	{ 2,	"Ivysaur",		11,	16,	60,	62,	63, 80, 80, 60 },
+	{ 3,	"Venusaur",		11,	16,	80,	82,	83, 100,100,80 },
+	{ 4,	"Charmander",	7,	0,	39,	52,	43, 60, 50, 65 },
+	{ 5,	"Charmeleon",	7,	0,	58,	64,	58, 80, 65, 80 },
+	{ 6,	"Charizard",	7,	17,	78,	84,	78, 109,85, 100 },
+	{ 7,	"Squirtle",		2,	0,	44,	48,	65, 50, 64, 43 },
+	{ 8,	"Wartortle",	2,	0,	59,	63,	80,	65, 80, 58 },
+	{ 9,	"Blastoise",	2,	0,	79,	83,	100,85,	105,78 },
 };
 
 static Nature natures[] = {
@@ -65,5 +71,24 @@ static Nature natures[] = {
 	{ 25,	"rara",		1.0, 	1.0, 	1.0, 	1.0, 	1.0 },
 };
 
+static Type types[] = {
+	{1, "Acero"},
+	{2, "Agua"},
+	{3, "Bicho"},
+	{4, "Dragón"},
+	{5, "Eléctrico"},
+	{6, "Fantasma"},
+	{7, "Fuego"},
+	{8, "Hielo"},
+	{9, "Lucha"},
+	{10, "Normal"},
+	{11, "Planta"},
+	{12, "Psíquico"},
+	{13, "Roca"},
+	{14, "Siniestro"},
+	{15, "Tierra"},
+	{16, "Veneno"},
+	{17, "Volador"}
+};
 
 #endif
