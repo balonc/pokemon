@@ -135,6 +135,11 @@ void pokedex(char *p, int id)
 	}
 }
 
+void type(char **argv)
+{
+	if (argv[2]) printf("%d\n",getIdByType(argv[2]));
+}
+
 int main(int argc, char **argv)
 {
 
@@ -162,11 +167,13 @@ int main(int argc, char **argv)
 
 		if (optarg && (strcmp(optarg,"naturaleza") == 0)) mode = 1;
 		else if (optarg && (strcmp(optarg,"pokedex") == 0)) mode = 2;
+		else if (optarg && (strcmp(optarg,"tipo") == 0)) mode = 3;
 
 	}
 
 	if (mode == 1) nature(naturename, statisticfavorable, statisticunfavorable, argv);
-	if (mode == 2) pokedex(pokemonname, pokemonid);
+	else if (mode == 2) pokedex(pokemonname, pokemonid);
+	else if (mode == 3) type(argv);
 	
     return 0;
 }

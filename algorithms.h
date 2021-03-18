@@ -161,7 +161,14 @@ void printPokemon(Pokemon p)
         p.bdefesp,	
         p.bvel
         );
+}
 
+int getIdByType(char *type)
+{
+    for (int i = 0; i < 17; i++)
+    {
+        if (strcmp(types[i].name,type) == 0) return types[i].id;
+    }
 }
 
 int calculaPS(int base, int iv, int ev, int nivel);
