@@ -171,6 +171,17 @@ int getIdByType(char *type)
     }
 }
 
+double efficacy(int a, int b)
+{
+    for (int i = 0; i < 17; i++) 
+    {
+        if (TypeMatrix[i][0] == a)
+        {
+            return TypeMatrix[i][b];
+        }
+    }
+}
+
 int calculaPS(int base, int iv, int ev, int nivel);
 int calculaStat(int base, int iv, int ev, int nivel, float nature);
 int calculaTipoPoderOculto(int ivps, int ivata, int ivdef, int ivvel, int ivataesp, int ivdefesp);

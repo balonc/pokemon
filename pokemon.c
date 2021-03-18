@@ -137,7 +137,15 @@ void pokedex(char *p, int id)
 
 void type(char **argv)
 {
-	if (argv[2]) printf("%d\n",getIdByType(argv[2]));
+	double ef;
+	int x = getIdByType(argv[2]);
+	int y = getIdByType(argv[3]);
+	if (argv[2] && argv[3]) ef = efficacy(x,y);
+
+	if (ef == 0.0) printf("No afecta.\n");
+	else if (ef == 0.5) printf("Po.\n");
+	else if (ef == 1.0) printf("Ta.\n");
+	else if (ef == 2.0) printf("Taratatás.\n");
 }
 
 int main(int argc, char **argv)
