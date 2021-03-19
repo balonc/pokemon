@@ -140,12 +140,20 @@ void type(char **argv)
 	double ef;
 	int x = getIdByType(argv[2]);
 	int y = getIdByType(argv[3]);
+	int z = 0;
+	
 	if (argv[2] && argv[3]) ef = efficacy(x,y);
+	if (argv[4]) 
+	{
+		z = getIdByType(argv[4]);
+		ef = ef * efficacy(x,z);
+	}
 
 	if (ef == 0) printf("No afecta.\n");
 	else if (ef == 0.5) printf("Po.\n");
 	else if (ef == 1.0) printf("Ta.\n");
 	else if (ef == 2.0) printf("Taratatás.\n");
+	else if (ef > 2.0) printf("Tatara-tatara-tatara-tás.\n");
 }
 
 int main(int argc, char **argv)

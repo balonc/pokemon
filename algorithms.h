@@ -165,7 +165,7 @@ void printPokemon(Pokemon p)
 
 int getIdByType(char *type)
 {
-    for (int i = 0; i < 17; i++)
+    for (int i = 0; i < 18; i++)
     {
         if (strcmp(types[i].name,type) == 0) return types[i].id;
     }
@@ -173,7 +173,7 @@ int getIdByType(char *type)
 
 double efficacy(int a, int b)
 {
-    for (int i = 0; i < 17; i++) 
+    for (int i = 0; i < 18; i++) 
     {
         if (TypeMatrix[i][0] == a)
         {
