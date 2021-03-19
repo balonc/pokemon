@@ -26,7 +26,7 @@ typedef struct {
 
 typedef struct {
 	int id;
-	char name[8];
+	char name[9];
 } Type;
 
 static Pokemon pokemons[] = {
@@ -75,15 +75,15 @@ static Type types[] = {
 	{1, "acero"},
 	{2, "agua"},
 	{3, "bicho"},
-	{4, "dragón"},
-	{5, "eléctrico"},
+	{4, "dragon"},
+	{5, "electrico"},
 	{6, "fantasma"},
 	{7, "fuego"},
 	{8, "hielo"},
 	{9, "lucha"},
 	{10, "normal"},
 	{11, "planta"},
-	{12, "psíquico"},
+	{12, "psiquico"},
 	{13, "roca"},
 	{14, "siniestro"},
 	{15, "tierra"},
